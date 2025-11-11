@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPyPiMux(t *testing.T) {
+func TestPyPiGetMux(t *testing.T) {
 	mux := NewPyPiMux(&PyPiConfig{
 		MaxFileSizeMB: 128,
 	})
@@ -26,6 +26,17 @@ func TestPyPiMux(t *testing.T) {
 			_ = requestAndAssertOk(t, url)
 		})
 	}
+}
+
+func TestPyPiPostMux(t *testing.T) {
+	mux := NewPyPiMux(&PyPiConfig{
+		MaxFileSizeMB: 128,
+	})
+	rootMux := http.NewServeMux()
+	rootMux.Handle("/pypi/", http.StripPrefix("/pypi", mux))
+	server := httptest.NewServer(rootMux)
+	defer server.Close()
+
 }
 
 func requestAndAssertOk(t *testing.T, url string) []byte {

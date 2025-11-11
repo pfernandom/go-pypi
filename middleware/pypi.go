@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/pfernandom/go-pipy/pipy"
+	"github.com/pfernandom/go-pypi/pipy"
 )
 
 var logger *slog.Logger

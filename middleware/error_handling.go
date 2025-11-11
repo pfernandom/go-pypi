@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/pfernandom/go-pipy/pipy"
+	"github.com/pfernandom/go-pypi/pipy"
 )
 
 func ErrorHandler(next http.Handler) http.Handler {

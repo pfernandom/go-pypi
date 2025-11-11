@@ -1,4 +1,4 @@
-module github.com/pfernandom/go-pipy
+module github.com/pfernandom/go-pypi
 
 go 1.24.2
 
